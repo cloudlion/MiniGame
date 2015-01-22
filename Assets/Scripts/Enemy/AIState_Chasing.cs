@@ -11,7 +11,7 @@ public partial class EnemyAI : StateMachine {
 	void ChasingUpdate()
 	{
 		if (!scanner.playerInSight && moveController.IsStopped) {
-			SetState("AIState_Patrolling");
+			SetState ("AIState_Waiting");
 			return;
 		}
 

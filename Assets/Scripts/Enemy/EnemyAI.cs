@@ -8,6 +8,7 @@ public partial class EnemyAI : StateMachine {
 	public Rigidbody _rigibody;
 	public SignalSender signalFire;
 	public SignalSender signalStopFire;
+	public Transform[] patrolPoints;
 
 	private GameObject player;	
 	private Vector3 _lastTargetPosition;
@@ -22,6 +23,7 @@ public partial class EnemyAI : StateMachine {
 		AddState ("AIState_Patrolling", PatrollingUpdate, PatrollingStart);
 		AddState ("AIState_Chasing", ChasingUpdate, ChasingStart);
 		AddState ("AIState_Shooting", ShootingUpdate, ShootingStart, ShootingExit);
+		AddState ("AIState_Waiting", WaitingUpdate, WaitingStart);
 		SetState ("AIState_Patrolling");
 	}
 

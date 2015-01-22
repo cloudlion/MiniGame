@@ -31,7 +31,7 @@ public class MoveController : MonoBehaviour {
 	public bool IsStopped
 	{
 		get{
-			return ( transform.position - nav.destination).magnitude < nav.stoppingDistance;
+			return nav.remainingDistance <= nav.stoppingDistance;
 		}
 	}
 }
