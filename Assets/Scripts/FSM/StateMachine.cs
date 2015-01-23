@@ -75,6 +75,11 @@ public class StateMachine : MonoBehaviour {
 		SetState (state);
 	}
 
+	protected bool IsEmpty {
+		get {
+			return _states.Count == 0;
+		}
+	}
 	private void SetState(State newState)
 	{
 		if (_currentState != null)

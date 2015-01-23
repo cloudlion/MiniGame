@@ -87,4 +87,9 @@ public class Scanner : MonoBehaviour {
 		}
 		return playerInSight;
 	}
+
+	void OnEnable()
+	{
+		playerInSight = false;
+	}
 }
