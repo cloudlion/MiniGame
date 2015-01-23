@@ -8,7 +8,8 @@ public class Bullet : MonoBehaviour {
 	
 	private float spawnTime  = 0.0f;
 	private Transform tr ;
-	
+	private Health _health;
+
 	void OnEnable () {
 		tr = transform;
 		spawnTime = Time.time;
@@ -24,10 +25,14 @@ public class Bullet : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) 
 	{
-		if (other.tag != "AI_Trigger") 
+	//	Debug.Log ("collision with: " + other.gameObject.name);
+		if (other.tag != "AI_Trigger" && other.tag != "Damage_Trigger") 
 		{
-			Debug.Log ("collision with: " + other.gameObject.name);
 			Spawner.Destroy (gameObject);
+
+			_health = other.GetComponent<Health>();
+			if( _health != null )
+				_health.OnDamage();
 		}
 	}
 

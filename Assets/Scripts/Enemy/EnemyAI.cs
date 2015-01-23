@@ -26,7 +26,7 @@ public partial class EnemyAI : StateMachine {
 		AddState ("AIState_Waiting", WaitingUpdate, WaitingStart);
 		SetState ("AIState_Patrolling");
 	}
-
+	
 	public void MoveTo(Vector3 targetPosition)
 	{
 		moveController.MoveTo (targetPosition);
@@ -42,6 +42,11 @@ public partial class EnemyAI : StateMachine {
 	{
 	}
 
+	void OnEnable()
+	{
+		if( !IsEmpty )
+		 SetState ("AIState_Patrolling");
+	}
 
 	void OnTriggerStay (Collider other)
 	{
